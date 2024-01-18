@@ -19,6 +19,7 @@ junit = '4.13.2'
 
 androidApplication = '8.2.1'
 kotlinAndroidPlugin = '1.9.0'
+junitKtx = "1.1.5"
 
 [libraries]
 accompanistPermissions = {group = 'com.google.accompanist', name = 'accompanist-permissions', version.ref = 'accompanist'}
@@ -48,6 +49,7 @@ ktor-client-logging = {group = 'io.ktor', name = 'ktor-client-logging-jvm', vers
 
 androidx-compose-ui-tooling = {group='androidx.compose.ui', name = 'ui-tooling'}
 androidx-compose-ui-test-manifest = {group = 'androidx.compose.ui', name = 'ui-test-manifest'}
+androidx-junit-ktx = { group = "androidx.test.ext", name = "junit-ktx", version.ref = "junitKtx" }
 
 [bundles]
 compose = [
