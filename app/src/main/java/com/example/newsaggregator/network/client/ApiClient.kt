@@ -1,6 +1,9 @@
-package com.example.newsaggregator.service
+package com.example.newsaggregator.network.client
 
 import android.util.Log
+import com.example.newsaggregator.network.AppException
+import com.example.newsaggregator.network.BaseUrlHolder
+import com.example.newsaggregator.network.ServerException
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.engine.cio.CIO

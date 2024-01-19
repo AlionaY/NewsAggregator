@@ -1,4 +1,4 @@
-package com.example.newsaggregator.service
+package com.example.newsaggregator.network
 
 import com.example.newsaggregator.BuildConfig
 
