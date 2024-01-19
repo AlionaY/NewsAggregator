@@ -21,6 +21,8 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        buildConfigField("String", "REST_URL", "\"https://restcountries.com/v3.1/\"")
     }
 
     buildTypes {
@@ -41,6 +43,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
