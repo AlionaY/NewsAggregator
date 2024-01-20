@@ -22,6 +22,10 @@ object AppModule {
 
     @Singleton
     @Provides
+    fun provideApiClient(urlHolder: BaseUrlHolder) = ApiClient(urlHolder)
+
+    @Singleton
+    @Provides
     fun provideCountriesService(apiClient: ApiClient): CountriesService =
         CountriesServiceImpl(apiClient)
 
