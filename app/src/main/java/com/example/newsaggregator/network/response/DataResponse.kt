@@ -9,6 +9,6 @@ data class DataResponse<T>(
     val status: Boolean,
     @SerialName("message")
     val message: String,
-    @SerialName("")
+    @SerialName("data")
     val data: T
 )
