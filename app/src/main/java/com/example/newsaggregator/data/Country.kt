@@ -2,7 +2,6 @@ package com.example.newsaggregator.data
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import java.util.Dictionary
 
 @Serializable
 data class Country(
@@ -43,17 +42,13 @@ data class Country(
     @SerialName("nativeCode")
     val nativeCode: String,
     @SerialName("currencies")
-//    todo: Make an obj
-    val currencies: List<String>,
-//    todo: Make an obj
+    val currencies: List<Currency>,
     @SerialName("languages")
-    val languages: List<String>,
-//    todo: Make an obj
+    val languages: List<Language>,
     @SerialName("translations")
-    val translations: Dictionary<String, String>,,
+    val translations: Translations,
     @SerialName("flag")
     val flag: String,
-//    todo: Make an obj
     @SerialName("regionalBlocs")
-    val regionalBlocs: List<String>
+    val regionalBlocs: List<RegionalBloc>
 )
