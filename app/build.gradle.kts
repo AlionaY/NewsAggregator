@@ -22,7 +22,9 @@ android {
             useSupportLibrary = true
         }
 
-        buildConfigField("String", "REST_URL", "\"https://restcountries.com/v3.1/\"")
+        buildConfigField("String", "REST_URL", "\"https://api.jikan.moe/v4/\"")
+//        buildConfigField("String", "REST_URL", "\"https://animechan.xyz/api/\"")
+//        buildConfigField("String", "REST_URL", "\"https://jsonplaceholder.typicode.com/\"")
     }
 
     buildTypes {

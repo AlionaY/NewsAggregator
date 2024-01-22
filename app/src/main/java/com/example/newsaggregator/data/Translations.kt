@@ -6,17 +6,19 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Translations(
     @SerialName("de")
-    val german: String,
+    val german: String = "",
     @SerialName("es")
-    val spanish: String,
+    val spanish: String = "",
     @SerialName("fr")
-    val french: String,
+    val french: String = "",
     @SerialName("ja")
-    val japan: String,
+    val japan: String = "",
     @SerialName("it")
-    val italian: String,
+    val italian: String = "",
     @SerialName("br")
-    val breton: String,
+    val breton: String = "",
     @SerialName("pt")
-    val portuguese: String
+    val portuguese: String = "",
+    @SerialName("ara")
+    val arabian: String = ""
 )

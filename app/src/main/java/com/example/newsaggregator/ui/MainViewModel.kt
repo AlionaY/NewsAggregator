@@ -13,13 +13,9 @@ class MainViewModel @Inject constructor(
     private val countriesRepository: CountriesRepository
 ): ViewModel() {
 
-    init {
-        getAllCountries()
-    }
-
-    private fun getAllCountries() {
+    fun getAllCountries() {
         viewModelScope.launch {
-            val data = countriesRepository.getAllCountries()
+            val data = countriesRepository.getAnimeGenres()
             Log.d("####", "countries data $data")
         }
     }

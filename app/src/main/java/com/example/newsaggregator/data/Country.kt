@@ -37,8 +37,6 @@ data class Country(
     val timezones: List<String>,
     @SerialName("borders")
     val borders: List<String>,
-    @SerialName("nativeName")
-    val nativeName: String,
     @SerialName("nativeCode")
     val nativeCode: String,
     @SerialName("currencies")
@@ -52,3 +50,4 @@ data class Country(
     @SerialName("regionalBlocs")
     val regionalBlocs: List<RegionalBloc>
 )
+
