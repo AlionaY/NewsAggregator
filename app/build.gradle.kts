@@ -60,14 +60,17 @@ android {
 dependencies {
     implementation(libs.bundles.compose)
     implementation(libs.bundles.ktor)
+
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.lifecycle.ktx)
     implementation(libs.androidx.core.ktx)
 
+    implementation(libs.accompanistPermissions)
+    implementation(libs.coil)
+
     kapt(libs.hilt.compiler)
     implementation(libs.hilt.android)
 
-    implementation(libs.accompanistPermissions)
 
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)

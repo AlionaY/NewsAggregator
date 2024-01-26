@@ -12,6 +12,10 @@ androidxComposeCompiler = '1.5.8'
 androidxLifecycle = '2.7.0'
 androidxMaterial = '1.1.2'
 androidxNavigation = '2.7.6'
+androidxHiltNavigationCompose = '1.1.0'
+androidxComposeFoundation = '1.5.4'
+
+coil = '2.5.0'
 
 kotlinxCoroutines = '1.7.1'
 kotlinxSerialization = '1.6.0'
@@ -38,6 +42,10 @@ androidx-compose-ui-tooling-preview = { group = 'androidx.compose.ui', name = 'u
 androidx-compose-material3 = { group = 'androidx.compose.material3', name = 'material3', version.ref = 'androidxMaterial' }
 androidx-compose-compiler = { group = 'androidx.compose.compiler', name = 'compiler', version.ref = 'androidxComposeCompiler' }
 androidx-compose-navigation = { group = 'androidx.navigation', name = 'navigation-compose', version.ref = 'androidxNavigation' }
+androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "androidxHiltNavigationCompose" }
+androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "androidxComposeFoundation" }
+
+coil = { group = 'io.coil-kt', name = 'coil-compose', version.ref = 'coil' }
 
 kotlinx-coroutines-core = { group = 'org.jetbrains.kotlinx', name = 'kotlinx-coroutines-android', version.ref = 'kotlinxCoroutines' }
 kotlinx-coroutines-android = { group = 'org.jetbrains.kotlinx', name = 'kotlinx-coroutines-android', version.ref = 'kotlinxCoroutines' }
@@ -54,7 +62,6 @@ ktor-client-logging = { group = 'io.ktor', name = 'ktor-client-logging-jvm', ver
 ktor-client-cio = { group = 'io.ktor', name = 'ktor-client-cio', version.ref = 'ktor' }
 ktor-client-content = { group = 'io.ktor', name = 'ktor-client-content-negotiation', version.ref = 'ktor' }
 ktor-serialization-json = { group = 'io.ktor', name = 'ktor-serialization-kotlinx-json', version.ref = 'ktor' }
-ktor-serialization-gson = { group = 'io.ktor', name = 'ktor-serialization-gson', version.ref = 'ktor' }
 ktor-client-okhttp = { group = 'io.ktor', name = 'ktor-client-okhttp', version.ref = 'ktor' }
 ktor-serialization = { group = 'io.ktor', name = 'ktor-serialization', version.ref = 'ktor' }
 ktor-serialization-xml = { group = 'io.ktor', name = 'ktor-serialization-kotlinx-xml', version.ref = 'ktor' }
@@ -67,11 +74,12 @@ androidx-junit-ktx = { group = "androidx.test.ext", name = "junit-ktx", version.
 compose = [
     'androidx-activity-compose', 'androidx-compose-ui-ui', 'androidx-ui-graphics',
     'androidx-compose-ui-tooling-preview', 'androidx-compose-material3',
-    'androidx-compose-compiler', 'androidx-compose-navigation'
+    'androidx-compose-compiler', 'androidx-compose-navigation', 'androidx-hilt-navigation-compose',
+    'androidx-compose-foundation'
 ]
 ktor = [
     'ktor-client-android', 'ktor-client-logging', 'ktor-client-serialization',
-    'ktor-client-cio', 'ktor-client-content', 'ktor-serialization-json', 'ktor-serialization-gson',
+    'ktor-client-cio', 'ktor-client-content', 'ktor-serialization-json',
     'ktor-client-okhttp', 'ktor-serialization', 'ktor-serialization-xml'
 ]
 

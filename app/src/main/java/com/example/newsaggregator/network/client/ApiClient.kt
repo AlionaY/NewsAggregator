@@ -1,13 +1,11 @@
 package com.example.newsaggregator.network.client
 
-import android.util.Log
 import com.example.newsaggregator.network.AppException
 import com.example.newsaggregator.network.BaseUrlHolder
 import com.example.newsaggregator.network.ServerException
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.engine.cio.CIO
-import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.plugins.DefaultRequest
 import io.ktor.client.plugins.HttpResponseValidator
 import io.ktor.client.plugins.HttpTimeout
@@ -22,7 +20,6 @@ import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
 import io.ktor.http.contentType
 import io.ktor.http.isSuccess
-import io.ktor.serialization.gson.gson
 import io.ktor.serialization.kotlinx.json.json
 import io.ktor.serialization.kotlinx.xml.xml
 import kotlinx.serialization.json.Json
@@ -86,7 +83,6 @@ class ApiClient(private val baseUrlHolder: BaseUrlHolder) {
         path: String,
         params: Map<String, Any>? = null
     ): T {
-        Log.d("$$$", "url ${getUrlString(path)}")
         val data = client.get(getUrlString(path)) {
             contentType(ContentType.Application.Json)
             params?.forEach { parameter(it.key, it.value) }
