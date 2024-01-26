@@ -21,6 +21,10 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+//        buildConfigField("String", "REST_URL", "\"https://api.jikan.moe/v4/\"")
+        buildConfigField("String", "REST_URL", "\"https://animechan.xyz/api/\"")
+//        buildConfigField("String", "REST_URL", "\"https://jsonplaceholder.typicode.com/\"")
     }
 
     buildTypes {
@@ -33,17 +37,18 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        kotlinCompilerExtensionVersion = libs.versions.androidxComposeCompiler.get()
     }
     packaging {
         resources {
@@ -54,11 +59,13 @@ android {
 
 dependencies {
     implementation(libs.bundles.compose)
-    implementation(libs.bundles.hilt)
     implementation(libs.bundles.ktor)
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.lifecycle.ktx)
     implementation(libs.androidx.core.ktx)
+
+    kapt(libs.hilt.compiler)
+    implementation(libs.hilt.android)
 
     implementation(libs.accompanistPermissions)
 
