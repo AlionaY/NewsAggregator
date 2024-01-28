@@ -32,7 +32,7 @@ val Typography = Typography(
     ),
     labelSmall = TextStyle(
         fontFamily = monserratFamily,
-        fontWeight = FontWeight.Normal,
+        fontWeight = FontWeight.Medium,
         fontSize = 11.sp,
         lineHeight = 16.sp,
         letterSpacing = 0.5.sp
