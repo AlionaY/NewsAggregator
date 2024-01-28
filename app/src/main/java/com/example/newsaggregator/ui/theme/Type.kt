@@ -18,7 +18,7 @@ val monserratFamily = FontFamily(
 val Typography = Typography(
     bodyLarge = TextStyle(
         fontFamily = monserratFamily,
-        fontWeight = FontWeight.Normal,
+        fontWeight = FontWeight.Medium,
         fontSize = 16.sp,
         lineHeight = 24.sp,
         letterSpacing = 0.5.sp
@@ -37,4 +37,9 @@ val Typography = Typography(
         lineHeight = 16.sp,
         letterSpacing = 0.5.sp
     ),
+    headlineMedium = TextStyle(
+        fontFamily = monserratFamily,
+        fontWeight = FontWeight.Medium,
+        fontSize = 20.sp
+    )
 )
