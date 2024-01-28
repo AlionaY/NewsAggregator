@@ -13,7 +13,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.example.newsaggregator.ui.components.BottomNavigationBar
-import com.example.newsaggregator.ui.ext.ProvideLocalNavBarItems
 import com.example.newsaggregator.ui.navigation.Navigation
 import com.example.newsaggregator.ui.navigation.Routes
 import com.example.newsaggregator.ui.theme.NewsAggregatorTheme
@@ -36,26 +35,24 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun MainScreen() {
-        ProvideLocalNavBarItems {
-            val navController = rememberNavController()
+        val navController = rememberNavController()
 
-            Scaffold(
-                modifier = Modifier.fillMaxSize(),
-                bottomBar = {
-                    BottomNavigationBar(
-                        onItemSelected = {
-                            navController.navigate(it.route.route) {
-                                launchSingleTop = true
-                                popUpTo(Routes.Home.route)
-                            }
-                        })
-                }
-            ) { innerPadding ->
+        Scaffold(
+            modifier = Modifier.fillMaxSize(),
+            bottomBar = {
+                BottomNavigationBar(
+                    onItemSelected = {
+                        navController.navigate(it.route.route) {
+                            launchSingleTop = true
+                            popUpTo(Routes.Home.route)
+                        }
+                    })
+            }
+        ) { innerPadding ->
 //            don`t use innerPadding to make edge-to-edge effect
 
-                Surface {
-                    Navigation(navController = navController)
-                }
+            Surface {
+                Navigation(navController = navController)
             }
         }
     }
