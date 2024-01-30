@@ -8,7 +8,7 @@ data class PaginationResponse<T>(
     @SerialName("pagination")
     val pagination: Pagination,
     @SerialName("data")
-    val data: DataResponse<T>
+    val data: List<T>
 )
 
 @Serializable

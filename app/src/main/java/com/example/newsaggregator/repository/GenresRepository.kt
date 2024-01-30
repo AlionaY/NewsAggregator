@@ -18,5 +18,5 @@ class GenresRepositoryImpl(private val genresService: GenresService) : GenresRep
         genresService.getMangaGenres().data
 
     override suspend fun getMagazines(): List<Magazine> =
-        genresService.getMagazines().data.data
+        genresService.getMagazines().data
 }

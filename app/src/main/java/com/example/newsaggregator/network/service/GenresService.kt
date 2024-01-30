@@ -13,7 +13,7 @@ private const val MAGAZINES_GENRES = "magazines"
 interface GenresService {
     suspend fun getAnimeGenres(): DataResponse<List<Genre>>
     suspend fun getMangaGenres(): DataResponse<List<Genre>>
-    suspend fun getMagazines(): PaginationResponse<List<Magazine>>
+    suspend fun getMagazines(): PaginationResponse<Magazine>
 }
 
 class GenresServiceImpl(private val apiClient: ApiClient) : GenresService {
@@ -23,6 +23,6 @@ class GenresServiceImpl(private val apiClient: ApiClient) : GenresService {
     override suspend fun getMangaGenres(): DataResponse<List<Genre>> =
         apiClient.get(MANGA_GENRES)
 
-    override suspend fun getMagazines(): PaginationResponse<List<Magazine>> =
+    override suspend fun getMagazines(): PaginationResponse<Magazine> =
         apiClient.get(MAGAZINES_GENRES)
 }
