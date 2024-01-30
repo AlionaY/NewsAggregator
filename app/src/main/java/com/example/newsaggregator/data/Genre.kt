@@ -4,7 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Manga(
+data class Genre(
     @SerialName("mal_id")
     val id: Int,
     @SerialName("name")
