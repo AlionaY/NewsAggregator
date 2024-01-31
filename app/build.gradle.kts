@@ -60,6 +60,7 @@ android {
 dependencies {
     implementation(libs.bundles.compose)
     implementation(libs.bundles.ktor)
+    implementation(libs.bundles.paging)
 
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.lifecycle.ktx)
