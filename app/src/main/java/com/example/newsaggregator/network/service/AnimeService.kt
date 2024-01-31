@@ -10,12 +10,21 @@ private const val ANIME = "anime"
 private const val ANIME_GENRES = "genres/anime"
 
 interface AnimeService {
-    suspend fun getAnimeList(): PaginationResponse<Anime>
+    suspend fun getAnimeList(
+        page: Int,
+        limit: Int = 0,
+        query: String = ""
+    ): PaginationResponse<Anime>
+
     suspend fun getAnimeGenres(): DataResponse<List<Genre>>
 }
 
 class AnimeServiceImpl(private val apiClient: ApiClient) : AnimeService {
-    override suspend fun getAnimeList(): PaginationResponse<Anime> =
+    override suspend fun getAnimeList(
+        page: Int,
+        limit: Int,
+        query: String
+    ): PaginationResponse<Anime> =
         apiClient.get(ANIME)
 
     override suspend fun getAnimeGenres(): DataResponse<List<Genre>> =
