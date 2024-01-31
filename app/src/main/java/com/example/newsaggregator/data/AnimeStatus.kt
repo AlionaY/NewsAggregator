@@ -1,7 +1,14 @@
 package com.example.newsaggregator.data
 
-enum class AnimeStatus(val alias: String) {
-    Airing("airing"),
-    Complete("complete"),
-    Upcoming("upcoming")
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+
+@Serializable
+enum class AnimeStatus() {
+    @SerialName("Finished Airing")
+    Complete,
+    @SerialName("Currently Airing")
+    Airing,
+    @SerialName("Not yet aired")
+    Upcoming
 }

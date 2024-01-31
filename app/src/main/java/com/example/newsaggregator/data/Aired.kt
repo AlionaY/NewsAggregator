@@ -6,11 +6,11 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Aired(
     @SerialName("from")
-    val from: String,
+    val from: String?,
     @SerialName("to")
-    val to: String,
+    val to: String?,
     @SerialName("prop")
-    val prop: Prop
+    val prop: Prop?
 )
 
 @Serializable
@@ -20,15 +20,15 @@ data class Prop(
     @SerialName("to")
     val to: DateItem,
     @SerialName("string")
-    val string: String
+    val string: String = ""
 )
 
 @Serializable
 data class DateItem(
     @SerialName("day")
-    val date: Int,
+    val date: Int?,
     @SerialName("month")
-    val month: Int,
+    val month: Int?,
     @SerialName("year")
-    val year: Int
+    val year: Int?
 )

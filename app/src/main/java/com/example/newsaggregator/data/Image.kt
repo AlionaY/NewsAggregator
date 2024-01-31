@@ -6,17 +6,17 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class ImageItem(
     @SerialName("image_url")
-    val imageUrl: String,
+    val imageUrl: String = "",
     @SerialName("small_image_url")
-    val smallImageUrl: String,
+    val smallImageUrl: String = "",
     @SerialName("large_image_url")
-    val largeImageUrl: String
+    val largeImageUrl: String = ""
 )
 
 @Serializable
 data class Images(
     @SerialName("jpg")
-    val jpg: ImageItem,
+    val jpg: ImageItem?,
     @SerialName("webp")
-    val webp: ImageItem
+    val webp: ImageItem?
 )

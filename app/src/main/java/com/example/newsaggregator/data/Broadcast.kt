@@ -6,11 +6,11 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Broadcast(
     @SerialName("day")
-    val day: String,
+    val day: String?,
     @SerialName("time")
-    val time: String,
+    val time: String?,
     @SerialName("timezone")
-    val timezone: String,
+    val timezone: String?,
     @SerialName("string")
-    val string: String
+    val string: String?
 )

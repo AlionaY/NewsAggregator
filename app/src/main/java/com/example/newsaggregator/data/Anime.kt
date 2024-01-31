@@ -8,73 +8,73 @@ data class Anime(
     @SerialName("mal_id")
     val id: Int,
     @SerialName("url")
-    val url: String,
+    val url: String?,
     @SerialName("images")
-    val images: Images,
+    val images: Images?,
     @SerialName("trailer")
-    val trailer: Trailer,
+    val trailer: Trailer?,
     @SerialName("approved")
-    val approved: Boolean,
+    val approved: Boolean? = false,
     @SerialName("titles")
-    val titles: List<AnimeTitle>,
+    val titles: List<AnimeTitle>? = emptyList(),
     @SerialName("title")
-    val title: String,
+    val title: String? = "",
     @SerialName("title_english")
-    val titleEnglish: String,
+    val titleEnglish: String? = "",
     @SerialName("title_japanese")
-    val titleJapanese: String,
+    val titleJapanese: String? = "",
     @SerialName("title_synonyms")
-    val titleSynonyms: List<String>,
+    val titleSynonyms: List<String>? = emptyList(),
     @SerialName("type")
-    val animeType: AnimeType,
+    val animeType: AnimeType?,
     @SerialName("source")
-    val source: String,
+    val source: String? = "",
     @SerialName("episodes")
-    val episodes: Int,
+    val episodes: Int? = 0,
     @SerialName("status")
-    val animeStatus: AnimeStatus,
+    val animeStatus: AnimeStatus?,
     @SerialName("airing")
-    val airing: Boolean,
+    val airing: Boolean? = false,
     @SerialName("aired")
-    val aired: Aired,
+    val aired: Aired?,
     @SerialName("duration")
-    val duration: String,
+    val duration: String?,
     @SerialName("rating")
-    val rating: AnimeRating,
+    val rating: AnimeRating?,
     @SerialName("score")
-    val score: Int,
+    val score: Float?,
     @SerialName("scored_by")
-    val scoredBy: Int,
+    val scoredBy: Int?,
     @SerialName("rank")
-    val rank: Int,
+    val rank: Int?,
     @SerialName("popularity")
-    val popularity: Int,
+    val popularity: Int?,
     @SerialName("members")
-    val members: Int,
+    val members: Int?,
     @SerialName("favorites")
-    val favorites: Int,
+    val favorites: Int?,
     @SerialName("synopsis")
-    val synopsis: String,
+    val synopsis: String?,
     @SerialName("background")
-    val background: String,
+    val background: String?,
     @SerialName("season")
-    val season: Season,
+    val season: Season?,
     @SerialName("year")
-    val year: Int,
+    val year: Int?,
     @SerialName("broadcast")
-    val broadcast: Broadcast,
+    val broadcast: Broadcast?,
     @SerialName("producers")
-    val producers: List<GeneralAnimeItemDetails>,
+    val producers: List<GeneralAnimeItemDetails>?,
     @SerialName("licensors")
-    val licensors: List<GeneralAnimeItemDetails>,
+    val licensors: List<GeneralAnimeItemDetails>?,
     @SerialName("studios")
-    val studios: List<GeneralAnimeItemDetails>,
+    val studios: List<GeneralAnimeItemDetails>?,
     @SerialName("genres")
-    val genres: List<GeneralAnimeItemDetails>,
+    val genres: List<GeneralAnimeItemDetails>?,
     @SerialName("explicit_genres")
-    val explicitGenres: List<GeneralAnimeItemDetails>,
+    val explicitGenres: List<GeneralAnimeItemDetails>?,
     @SerialName("themes")
-    val themes: List<GeneralAnimeItemDetails>,
+    val themes: List<GeneralAnimeItemDetails>?,
     @SerialName("demographics")
-    val demographics: List<GeneralAnimeItemDetails>
+    val demographics: List<GeneralAnimeItemDetails>?
 )

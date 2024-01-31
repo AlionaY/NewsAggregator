@@ -8,9 +8,9 @@ data class GeneralAnimeItemDetails(
     @SerialName("mal_id")
     val id: Int,
     @SerialName("type")
-    val type: String,
+    val type: String = "",
     @SerialName("name")
-    val name: String,
+    val name: String = "",
     @SerialName("url")
-    val url: String
+    val url: String = ""
 )

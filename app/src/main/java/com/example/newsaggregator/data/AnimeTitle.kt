@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class AnimeTitle(
     @SerialName("type")
-    val type: String,
+    val type: String = "",
     @SerialName("title")
-    val title: String
+    val title: String = ""
 )
