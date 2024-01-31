@@ -19,7 +19,7 @@ class SearchViewModel @Inject constructor(
     val loadingState = MutableStateFlow<LoadingState>(LoadingState.Idle)
 
     init {
-        getAllRandomQuotes()
+//        getAllRandomQuotes()
     }
 
     private fun getAllRandomQuotes() {
