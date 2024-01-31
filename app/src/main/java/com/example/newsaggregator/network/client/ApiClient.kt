@@ -50,9 +50,10 @@ class ApiClient(private val baseUrlHolder: BaseUrlHolder) {
                     prettyPrint = true
                 }
             )
-            xml(format = XML {
-                xmlDeclMode = XmlDeclMode.Charset
-            })
+
+//            xml(format = XML {
+//                xmlDeclMode = XmlDeclMode.Charset
+//            })
         }
         install(HttpTimeout) {
             connectTimeoutMillis = CONNECT_TIMEOUT_MILLIS
