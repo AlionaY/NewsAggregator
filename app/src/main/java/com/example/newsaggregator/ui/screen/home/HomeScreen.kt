@@ -1,6 +1,5 @@
 package com.example.newsaggregator.ui.screen.home
 
-import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -30,6 +29,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.paging.compose.collectAsLazyPagingItems
+import androidx.paging.compose.itemKey
 import coil.compose.AsyncImage
 
 
@@ -43,7 +43,6 @@ fun HomeScreen(
 
     val animeList = animeItemsList.collectAsLazyPagingItems()
     val lazyListState = rememberLazyListState()
-    Log.d("$$$", "list ${animeList.itemCount}")
 
     Box(
         modifier = Modifier
@@ -56,15 +55,20 @@ fun HomeScreen(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center,
         ) {
-            items(animeList.itemSnapshotList.items) { item ->
+            items(
+                count = animeList.itemCount,
+                key = animeList.itemKey { it.id }
+            ) { index ->
+                val item = animeList.itemSnapshotList[index]
+
                 AnimeItem(
-                    iconUrl = item.images?.jpg?.imageUrl.orEmpty(),
-                    title = item.title.orEmpty(),
+                    iconUrl = item?.images?.jpg?.imageUrl.orEmpty(),
+                    title = item?.title.orEmpty(),
                     modifier = Modifier
                         .padding(horizontal = 8.dp, vertical = 4.dp)
                         .fillMaxWidth()
                 ) {
-                    viewModel.onAnimeItemClick(item)
+                    item?.let { viewModel.onAnimeItemClick(it) }
                 }
             }
 
@@ -80,10 +84,15 @@ private fun AnimeItem(
     modifier: Modifier = Modifier,
     onItemClick: () -> Unit
 ) {
+    val shape = RoundedCornerShape(10)
     Card(
-        modifier = modifier.clickable { onItemClick() },
-        shape = RoundedCornerShape(10),
-        elevation = CardDefaults.cardElevation()
+        modifier = modifier
+            .clip(shape)
+            .clickable { onItemClick() },
+        shape = shape,
+        elevation = CardDefaults.cardElevation(
+            defaultElevation = 2.dp
+        )
     ) {
         Column(modifier = Modifier.fillMaxWidth()) {
             Row(
