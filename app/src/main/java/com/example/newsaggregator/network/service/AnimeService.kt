@@ -9,6 +9,11 @@ import com.example.newsaggregator.network.response.PaginationResponse
 private const val ANIME = "anime"
 private const val ANIME_GENRES = "genres/anime"
 
+private const val PAGE = "page"
+private const val LIMIT = "limit"
+private const val QUERY = "q"
+
+
 interface AnimeService {
     suspend fun getAnimeList(
         page: Int,
@@ -25,7 +30,14 @@ class AnimeServiceImpl(private val apiClient: ApiClient) : AnimeService {
         limit: Int,
         query: String
     ): PaginationResponse<Anime> =
-        apiClient.get(ANIME)
+        apiClient.get(
+            path = ANIME,
+            params = mapOf(
+                PAGE to page,
+                LIMIT to limit,
+                QUERY to query
+            )
+        )
 
     override suspend fun getAnimeGenres(): DataResponse<List<Genre>> =
         apiClient.get(ANIME_GENRES)
