@@ -39,7 +39,7 @@ fun HomeScreen(
     viewModel: HomeViewModel = hiltViewModel()
 ) {
     val viewState by viewModel.viewState.collectAsState()
-    val (animeItemsList) = viewState
+    val (animeItemsList, isLoading, list, error, endReached, page) = viewState
 
     val animeList = animeItemsList.collectAsLazyPagingItems()
     val lazyListState = rememberLazyListState()
@@ -56,10 +56,11 @@ fun HomeScreen(
             verticalArrangement = Arrangement.Center,
         ) {
             items(
-                count = animeList.itemCount,
+                animeList.itemCount,
+//                count = list.size,
                 key = animeList.itemKey { it.id }
             ) { index ->
-                val item = animeList.itemSnapshotList[index]
+                val item = animeList[index]
 
                 AnimeItem(
                     iconUrl = item?.images?.jpg?.imageUrl.orEmpty(),
