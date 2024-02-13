@@ -1,6 +1,5 @@
 package com.example.newsaggregator.ui.screen.home
 
-import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.newsaggregator.data.Anime
