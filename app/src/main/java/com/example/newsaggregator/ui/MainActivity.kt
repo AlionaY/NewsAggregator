@@ -13,7 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
-import com.example.newsaggregator.ui.components.BottomNavigationBar
+import com.example.newsaggregator.ui.component.BottomNavigationBar
 import com.example.newsaggregator.ui.navigation.Navigation
 import com.example.newsaggregator.ui.navigation.Routes
 import com.example.newsaggregator.ui.theme.NewsAggregatorTheme
