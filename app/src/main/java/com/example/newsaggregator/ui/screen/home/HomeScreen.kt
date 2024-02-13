@@ -27,9 +27,9 @@ import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.example.newsaggregator.data.Anime
+import com.example.newsaggregator.ui.navigation.Routes
 
 //todo: add arrow to jump to top after 1st/2nd item isn`t visible
-//todo: navigate to screen with anime details
 //todo: show more info in item card
 //todo: add theme, colors, typography
 
@@ -61,7 +61,10 @@ fun HomeScreen(
             .padding(top = 10.dp)
             .fillMaxSize()
             .nestedScroll(pullToRefreshState.nestedScrollConnection),
-        onAnimeItemClick = { viewModel.onAnimeItemClick(it) })
+        onAnimeItemClick = {
+//            viewModel.onAnimeItemClick(it)
+            navController.navigate("${Routes.AnimeDetails.route}/${it.id}")
+        })
 }
 
 @Composable
