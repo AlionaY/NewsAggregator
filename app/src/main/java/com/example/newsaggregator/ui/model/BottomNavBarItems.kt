@@ -1,4 +1,4 @@
-package com.example.newsaggregator.ui.base
+package com.example.newsaggregator.ui.model
 
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons

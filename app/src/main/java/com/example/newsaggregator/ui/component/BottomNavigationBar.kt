@@ -1,4 +1,4 @@
-package com.example.newsaggregator.ui.components
+package com.example.newsaggregator.ui.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.RowScope
@@ -17,7 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.example.newsaggregator.ui.base.BottomNavBarItems
+import com.example.newsaggregator.ui.model.BottomNavBarItems
 import com.example.newsaggregator.ui.theme.Black
 import com.example.newsaggregator.ui.theme.Typography
 
