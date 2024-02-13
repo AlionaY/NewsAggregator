@@ -5,5 +5,5 @@ import com.example.newsaggregator.data.Anime
 import kotlinx.coroutines.flow.Flow
 
 data class HomeViewState(
-    val animeLiatFlow: Flow<PagingData<Anime>>,
+    val animeListFlow: Flow<PagingData<Anime>>,
 )

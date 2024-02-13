@@ -1,6 +1,5 @@
 package com.example.newsaggregator.ui.screen.home
 
-import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.newsaggregator.data.Anime
@@ -13,10 +12,7 @@ class AnimePagingSource(
     val defaultLimit: Int = LIMIT,
 ) : PagingSource<Int, Anime>() {
     override fun getRefreshKey(state: PagingState<Int, Anime>): Int? {
-        return state.anchorPosition?.let { anchorPosition ->
-            val anchorPage = state.closestPageToPosition(anchorPosition)
-            anchorPage?.prevKey?.plus(1) ?: anchorPage?.nextKey?.minus(1)
-        }
+        return state.anchorPosition
     }
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Anime> {
@@ -32,12 +28,10 @@ class AnimePagingSource(
                 data.size < defaultLimit -> null
                 else -> currentPage.plus(1)
             }
-            val prevKey = if (data.isEmpty()) null else currentPage.minus(1)
-            Log.d("$$$", "curr page $currentPage, next $nextKey")
 
             LoadResult.Page(
                 data = data,
-                prevKey = prevKey,
+                prevKey = null,
                 nextKey = nextKey
             )
         } catch (e: Exception) {

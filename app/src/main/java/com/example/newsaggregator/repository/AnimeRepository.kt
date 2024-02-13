@@ -7,7 +7,7 @@ import com.example.newsaggregator.network.service.AnimeService
 interface AnimeRepository {
     suspend fun getAnimeList(
         page: Int,
-        limit: Int = 0,
+        limit: Int,
         query: String = ""
     ): List<Anime>
 
@@ -17,7 +17,11 @@ interface AnimeRepository {
 
 class AnimeRepositoryImpl(private val service: AnimeService) : AnimeRepository {
     override suspend fun getAnimeList(page: Int, limit: Int, query: String): List<Anime> =
-        service.getAnimeList(page, limit, query).data
+        service.getAnimeList(
+            page = page,
+            limit = limit,
+            query = query
+        ).data
 
     override suspend fun getAnimeGenres(): List<Genre> =
         service.getAnimeGenres().data

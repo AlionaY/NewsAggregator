@@ -17,8 +17,8 @@ private const val QUERY = "q"
 interface AnimeService {
     suspend fun getAnimeList(
         page: Int,
-        limit: Int = 0,
-        query: String = ""
+        limit: Int,
+        query: String
     ): PaginationResponse<Anime>
 
     suspend fun getAnimeGenres(): DataResponse<List<Genre>>
