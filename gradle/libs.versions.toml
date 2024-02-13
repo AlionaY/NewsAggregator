@@ -7,17 +7,18 @@ accompanist = '0.28.0'
 #androidxAppcompat = '1.6.1'
 androidxActivity = '1.8.2'
 androidxCore = '1.12.0'
-androidxCompose = '1.5.4'
+androidxCompose = '1.6.0'
 androidxComposeCompiler = '1.5.8'
 androidxLifecycle = '2.7.0'
-androidxMaterial = '1.1.2'
+androidxMaterial = '1.2.0-rc01'
 androidxNavigation = '2.7.6'
 androidxHiltNavigationCompose = '1.1.0'
-androidxComposeFoundation = '1.5.4'
+androidxComposeFoundation = '1.6.0'
+androidxComposeLifecycle = '2.7.0'
 
 coil = '2.5.0'
 
-kotlinxCoroutines = '1.7.1'
+kotlinxCoroutines = '1.7.3'
 kotlinxSerialization = '1.6.0'
 ktor = '2.2.1'
 
@@ -46,6 +47,7 @@ androidx-compose-compiler = { group = 'androidx.compose.compiler', name = 'compi
 androidx-compose-navigation = { group = 'androidx.navigation', name = 'navigation-compose', version.ref = 'androidxNavigation' }
 androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "androidxHiltNavigationCompose" }
 androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "androidxComposeFoundation" }
+androidx-compose-lifecycle = {group = 'androidx.lifecycle', name = 'lifecycle-runtime-compose', version.ref = 'androidxComposeLifecycle'}
 
 coil = { group = 'io.coil-kt', name = 'coil-compose', version.ref = 'coil' }
 
@@ -80,7 +82,7 @@ compose = [
     'androidx-activity-compose', 'androidx-compose-ui-ui', 'androidx-ui-graphics',
     'androidx-compose-ui-tooling-preview', 'androidx-compose-material3',
     'androidx-compose-compiler', 'androidx-compose-navigation', 'androidx-hilt-navigation-compose',
-    'androidx-compose-foundation'
+    'androidx-compose-foundation', 'androidx-compose-lifecycle'
 ]
 ktor = [
     'ktor-client-android', 'ktor-client-logging', 'ktor-client-serialization',
