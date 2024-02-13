@@ -11,6 +11,8 @@ interface AnimeRepository {
         query: String = ""
     ): List<Anime>
 
+    suspend fun getAnimeById(id: Int): Anime
+
     suspend fun getAnimeGenres(): List<Genre>
 
 }
@@ -22,6 +24,8 @@ class AnimeRepositoryImpl(private val service: AnimeService) : AnimeRepository {
             limit = limit,
             query = query
         ).data
+
+    override suspend fun getAnimeById(id: Int): Anime = service.getAnimeById(id).data
 
     override suspend fun getAnimeGenres(): List<Genre> =
         service.getAnimeGenres().data

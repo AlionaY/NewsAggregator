@@ -21,6 +21,8 @@ interface AnimeService {
         query: String
     ): PaginationResponse<Anime>
 
+    suspend fun getAnimeById(id: Int): DataResponse<Anime>
+
     suspend fun getAnimeGenres(): DataResponse<List<Genre>>
 }
 
@@ -38,6 +40,9 @@ class AnimeServiceImpl(private val apiClient: ApiClient) : AnimeService {
                 QUERY to query
             )
         )
+
+    override suspend fun getAnimeById(id: Int): DataResponse<Anime> =
+        apiClient.get("$ANIME/$id")
 
     override suspend fun getAnimeGenres(): DataResponse<List<Genre>> =
         apiClient.get(ANIME_GENRES)
