@@ -78,7 +78,7 @@ private fun ScreenContent(
             animeList.loadState.refresh == LoadState.Loading -> {
                 CircularProgressIndicator(
                     modifier = Modifier
-                        .size(30.dp)
+                        .size(40.dp)
                         .align(Alignment.Center),
                     strokeWidth = 4.dp
                 )

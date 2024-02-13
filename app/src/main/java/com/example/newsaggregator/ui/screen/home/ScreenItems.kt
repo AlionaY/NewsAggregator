@@ -71,8 +71,8 @@ fun AnimeList(
                     horizontalArrangement = Arrangement.Center
                 ) {
                     CircularProgressIndicator(
-                        modifier = Modifier.size(16.dp),
-                        strokeWidth = 4.dp
+                        modifier = Modifier.size(20.dp),
+                        strokeWidth = 2.dp
                     )
                 }
             }
@@ -116,7 +116,7 @@ private fun AnimeItem(
                     val state = painter.state
                     if (state is AsyncImagePainter.State.Loading || state is AsyncImagePainter.State.Error) {
                         CircularProgressIndicator(
-                            modifier = Modifier.size(70.dp),
+                            modifier = Modifier.size(50.dp),
                             strokeWidth = 2.dp
                         )
                     } else {
@@ -132,4 +132,3 @@ private fun AnimeItem(
         }
     }
 }
-
