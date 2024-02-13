@@ -14,6 +14,7 @@ import com.example.newsaggregator.repository.GenresRepository
 import com.example.newsaggregator.repository.GenresRepositoryImpl
 import com.example.newsaggregator.repository.RandomQuotesRepository
 import com.example.newsaggregator.repository.RandomQuotesRepositoryImpl
+import com.example.newsaggregator.ui.screen.home.AnimePagingSource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -59,4 +60,8 @@ object AppModule {
     @Provides
     fun provideAnimeRepository(service: AnimeService): AnimeRepository =
         AnimeRepositoryImpl(service)
+
+    @Singleton
+    @Provides
+    fun provideAnimePagingSource(repo: AnimeRepository) = AnimePagingSource(repo)
 }
