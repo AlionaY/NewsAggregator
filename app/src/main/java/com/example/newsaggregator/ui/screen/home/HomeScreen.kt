@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
@@ -32,6 +31,11 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.itemKey
 import coil.compose.AsyncImage
 
+//todo: add loading circle to screen and to end of the screen when loading new items
+//todo: add arrow to jump to top after 1st/2nd item isn`t visible
+//todo: navigate to screen with anime details
+//todo: show more info in item card
+//todo: add theme, colors, typography
 
 @Composable
 fun HomeScreen(
