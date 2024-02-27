@@ -9,10 +9,6 @@ import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
@@ -23,9 +19,9 @@ import com.example.newsaggregator.ui.theme.Typography
 
 @Composable
 fun BottomNavigationBar(
+    selectedItem: String,
     onItemSelected: (BottomNavBarItems) -> Unit,
 ) {
-    var selectedItem by remember { mutableStateOf(BottomNavBarItems.Home) }
 
     NavigationBar(
         modifier = Modifier
@@ -34,10 +30,9 @@ fun BottomNavigationBar(
         containerColor = MaterialTheme.colorScheme.surface
     ) {
         NavBarItem(
-            selectedItem = selectedItem,
+            currentRoute = selectedItem,
             onItemSelected = {
                 onItemSelected(it)
-                selectedItem = it
             }
         )
     }
@@ -45,15 +40,20 @@ fun BottomNavigationBar(
 
 @Composable
 private fun RowScope.NavBarItem(
-    selectedItem: BottomNavBarItems,
+    currentRoute: String,
     onItemSelected: (BottomNavBarItems) -> Unit
 ) {
     BottomNavBarItems.entries.forEach { item ->
         NavigationBarItem(
-            selected = selectedItem == item,
+            selected = currentRoute == item.route.route,
             onClick = { onItemSelected(item) },
             icon = {
-                val icon = if (selectedItem == item) item.selectedIcon else item.unselectedIcon
+                val icon = if (currentRoute == item.route.route) {
+                    item.selectedIcon
+                } else {
+                    item.unselectedIcon
+                }
+
                 Image(
                     imageVector = icon,
                     contentDescription = null

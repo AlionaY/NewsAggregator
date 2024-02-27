@@ -10,13 +10,16 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.events
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.newsaggregator.ui.component.BottomNavigationBar
 import com.example.newsaggregator.ui.navigation.Navigation
-import com.example.newsaggregator.ui.navigation.Routes
 import com.example.newsaggregator.ui.theme.NewsAggregatorTheme
+import com.example.newsaggregator.ui.util.HandleAppEvents
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -37,17 +40,18 @@ class MainActivity : ComponentActivity() {
     @Composable
     fun MainScreen() {
         val navController = rememberNavController()
+        val navBackStackEntry by navController.currentBackStackEntryAsState()
+        val currentRoute = navBackStackEntry?.destination?.route
+
+        HandleAppEvents(appEventFlow = viewModel.events, navController = navController)
 
         Scaffold(
             modifier = Modifier.fillMaxSize(),
             bottomBar = {
                 BottomNavigationBar(
-                    onItemSelected = {
-                        navController.navigate(it.route.route) {
-                            launchSingleTop = true
-                            popUpTo(Routes.Home.route)
-                        }
-                    })
+                    selectedItem = currentRoute.orEmpty(),
+                    onItemSelected = { viewModel.navigate(it) }
+                )
             }
         ) { innerPadding ->
 

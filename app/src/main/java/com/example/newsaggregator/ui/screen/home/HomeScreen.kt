@@ -22,12 +22,13 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.events
 import androidx.navigation.NavController
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.example.newsaggregator.data.Anime
-import com.example.newsaggregator.ui.navigation.Routes
+import com.example.newsaggregator.ui.util.HandleAppEvents
 
 //todo: add arrow to jump to top after 1st/2nd item isn`t visible
 //todo: show more info in item card
@@ -43,6 +44,8 @@ fun HomeScreen(
 
     val animeList = animeItemsList.collectAsLazyPagingItems()
     val pullToRefreshState = rememberPullToRefreshState()
+
+    HandleAppEvents(appEventFlow = viewModel.events, navController = navController)
 
     LaunchedEffect(key1 = animeList.loadState) {
         if (animeList.loadState.refresh == LoadState.Loading) {
@@ -62,8 +65,7 @@ fun HomeScreen(
             .fillMaxSize()
             .nestedScroll(pullToRefreshState.nestedScrollConnection),
         onAnimeItemClick = {
-//            viewModel.onAnimeItemClick(it)
-            navController.navigate("${Routes.AnimeDetails.route}/${it.id}")
+            viewModel.onAnimeItemClick(it)
         })
 }
 
