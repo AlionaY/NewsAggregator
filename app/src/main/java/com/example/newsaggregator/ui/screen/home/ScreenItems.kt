@@ -11,7 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -34,10 +34,10 @@ import com.example.newsaggregator.data.Anime
 @Composable
 fun AnimeList(
     animeList: LazyPagingItems<Anime>,
+    lazyListState: LazyListState,
     modifier: Modifier = Modifier,
     onAnimeItemClick: (Anime) -> Unit,
 ) {
-    val lazyListState = rememberLazyListState()
 
     LazyColumn(
         state = lazyListState,
@@ -116,7 +116,7 @@ private fun AnimeItem(
                     val state = painter.state
                     if (state is AsyncImagePainter.State.Loading || state is AsyncImagePainter.State.Error) {
                         CircularProgressIndicator(
-                            modifier = Modifier.size(50.dp),
+                            modifier = Modifier.size(20.dp),
                             strokeWidth = 2.dp
                         )
                     } else {

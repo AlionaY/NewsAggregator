@@ -5,6 +5,12 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
+import androidx.compose.animation.Animatable
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.TweenSpec
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -17,10 +23,15 @@ import androidx.lifecycle.events
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.newsaggregator.ui.component.BottomNavigationBar
+import com.example.newsaggregator.ui.model.BottomNavBarItems
 import com.example.newsaggregator.ui.navigation.Navigation
 import com.example.newsaggregator.ui.theme.NewsAggregatorTheme
 import com.example.newsaggregator.ui.util.HandleAppEvents
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.concurrent.TimeUnit
+import kotlin.time.DurationUnit
+import kotlin.time.toDuration
+import kotlin.time.toDurationUnit
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -48,10 +59,18 @@ class MainActivity : ComponentActivity() {
         Scaffold(
             modifier = Modifier.fillMaxSize(),
             bottomBar = {
-                BottomNavigationBar(
-                    selectedItem = currentRoute.orEmpty(),
-                    onItemSelected = { viewModel.navigate(it) }
-                )
+                val isBottomBarVisible =
+                    currentRoute in (BottomNavBarItems.entries.map { it.route.route })
+                AnimatedVisibility(
+                    visible = isBottomBarVisible,
+                    enter = slideInVertically { it / 2 },
+                    exit = slideOutVertically { it / 2 }
+                ) {
+                    BottomNavigationBar(
+                        selectedItem = currentRoute.orEmpty(),
+                        onItemSelected = { viewModel.navigate(it) }
+                    )
+                }
             }
         ) { innerPadding ->
 
@@ -59,12 +78,5 @@ class MainActivity : ComponentActivity() {
                 Navigation(navController = navController)
             }
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    NewsAggregatorTheme {
     }
 }
